@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Cost of Owning a Car in the US</title>
+  <meta name="description" content="Calculate the real monthly and yearly cost of owning a car in the United States. Simple, fast and free." />
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      font-size: 18px;
+      background: #0d6efd;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0b5ed7;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      background: #f1f5ff;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .result h2 {
+      margin-top: 0;
+      color: #0d6efd;
+    }
+
+    .ad-box {
+      margin: 25px 0;
+      padding: 20px;
+      background: #eee;
+      text-align: center;
+      border-radius: 8px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>How Much Does It REALLY Cost to Own a Car in the US?</h1>
+    <p class="subtitle">Simple calculator based on average US costs</p>
+
+    <label>Car Price ($)</label>
+    <input type="number" id="carPrice" placeholder="Example: 20000" />
+
+    <label>Monthly Insurance Cost</label>
+    <select id="insurance">
+      <option value="100">Low – $100</option>
+      <option value="140" selected>Average – $140</option>
+      <option value="180">High – $180</option>
+    </select>
+
+    <label>Monthly Fuel Cost ($)</label>
+    <input type="number" id="fuel" value="150" />
+
+    <label>Maintenance (Monthly)</label>
+    <input type="number" id="maintenance" value="100" />
+
+    <label>Taxes & Registration (Monthly)</label>
+    <input type="number" id="tax" value="50" />
+
+    <button onclick="calculate()">Calculate Real Cost</button>
+
+    <div class="result" id="result">
+      <h2>Your Real Cost</h2>
+      <p><strong>Monthly Cost:</strong> $<span id="monthly"></span></p>
+      <p><strong>Yearly Cost:</strong> $<span id="yearly"></span></p>
+      <p><strong>5-Year Cost:</strong> $<span id="fiveYears"></span></p>
+    </div>
+    <h2>Understanding the Real Cost of Car Ownership in the US</h2>
+
+    <p>
+    Owning a car in the United States involves more than just the purchase price.
+    Many people underestimate how much they actually spend every month on their vehicle.
+    This calculator helps you understand the real cost by combining the most common expenses.
+    </p>
+    
+    <p>
+    Monthly car ownership costs usually include insurance, fuel, maintenance,
+    taxes, and registration fees. These expenses vary depending on location,
+    driving habits, and vehicle type, but national averages give a realistic estimate.
+    </p>
+    
+    <p>
+    By using this calculator, you can quickly see how much owning a car truly costs
+    on a monthly, yearly, and long-term basis. This information can help you plan
+    your budget and avoid unexpected financial pressure.
+    </p>
+    
+    <p>
+    All numbers shown are estimates based on average costs in the United States.
+    This tool is provided for informational purposes only.
+    </p>
+    
+    <!-- Ad placement -->
+    <div class="ad-box">
+      Advertisement Area (AdSense / Media.net)
+    </div>
+
+    <div class="footer">
+      Estimates based on national averages. This tool is for informational purposes only.
+    </div>
+  </div>
+
+  <script>
+    function calculate() {
+      const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+      const fuel = parseFloat(document.getElementById('fuel').value) || 0;
+      const maintenance = parseFloat(document.getElementById('maintenance').value) || 0;
+      const tax = parseFloat(document.getElementById('tax').value) || 0;
+
+      const monthly = insurance + fuel + maintenance + tax;
+      const yearly = monthly * 12;
+      const fiveYears = yearly * 5;
+
+      document.getElementById('monthly').innerText = monthly.toFixed(2);
+      document.getElementById('yearly').innerText = yearly.toFixed(2);
+      document.getElementById('fiveYears').innerText = fiveYears.toFixed(2);
+
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+<p style="text-align:center; margin-top:30px;">
+    <a href="about.html">About</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a>
+  </p>
+  
+</body>
+</html>
